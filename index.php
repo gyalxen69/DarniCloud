@@ -11,10 +11,9 @@
     <title>DarniCloud</title>
 </head>
 <body>
-    <header style="background-color: ;">
-        <div class="text-left">
-            <img src="./imgs/logo2.png" style="height: 110px; width: 500px;" alt="DarniCloud">
-            <!-- <hr class="border border-dark border-2 opacity-50"> -->
+    <header style="background-color: #1299F3;">
+            <img src="./imgs/logo4.png" alt="DarniCloud">
+            
         </div>
     </header>
     <br>
