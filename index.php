@@ -11,9 +11,10 @@
     <title>DarniCloud</title>
 </head>
 <body>
-    <header>
-        <div class="text-center">
-            <h1>Darni Cloud</h1>
+    <header style="background-color: ;">
+        <div class="text-left">
+            <img src="./imgs/logo2.png" style="height: 110px; width: 500px;" alt="DarniCloud">
+            <!-- <hr class="border border-dark border-2 opacity-50"> -->
         </div>
     </header>
     <br>
