@@ -77,8 +77,31 @@
     // $users = $arrayUser->LoadUser();
     // var_dump($users);
   }
-
-
+  if(isset($_GET["login"]))
+  {
+    echo '
+    <form>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="rounded-5 p-5 border border-3 border-dark" style="width: 40%;">
+    <h1 style="text-align:center">Log In</h1>
+    <div class="mb-3">
+    <label class="form-label">User Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button" name="log">Log in</button>
+    </div>
+    </section>
+    </div>
+    </form>';
+    if(isset($_GET["log"])){
+      
+    }
+  }
   ?>
 </body>
 

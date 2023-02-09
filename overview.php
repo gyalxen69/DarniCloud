@@ -52,9 +52,9 @@
   </header>
   <?php
   if (isset($_GET["select"])) {
-    $arrayUser = new User();
-    $users = $arrayUser->LoadUser();
-    var_dump($users);
+    // $arrayUser = new User();
+    // $users = $arrayUser->LoadUser();
+    // var_dump($users);
   }
 
 
