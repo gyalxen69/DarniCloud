@@ -1,6 +1,7 @@
 <?php include "user.php" ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <title>DarniCloud</title>
 </head>
+
 <body>
   <header>
     <nav class="navbar fixed-top" style="background-color: #1299F3; padding:0">
@@ -54,20 +56,22 @@
   if (isset($_GET["signin"])) {
     echo '
     <form>
-    <section style="display: block; margin-top:15vw">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="rounded-5 p-5 border border-3 border-dark" style="width: 40%;">
     <h1 style="text-align:center">Sign In</h1>
     <div class="mb-3">
-      <label class="form-label">User Name</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label class="form-label">User Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">Sign In</button>
-  </div>
+    <button class="btn btn-primary" type="button">Sign In</button>
+    </div>
     </section>
+    </div>
     </form>';
     // $array'User = new User();
     // $users = $arrayUser->LoadUser();
