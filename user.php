@@ -13,13 +13,25 @@
             
         }
 
-        function LoadUser($nom, $pass)
+        function LoadUser()
         {
-            $stmt = pg_query(Connexio::connectar(),"SELECT id, nom, email, pass FROM usuaris where nom = :n or email = :n and pass = :p ");
-            // $stmt->bindParam(':n', $nom, PDO::PARAM_STR);
-            // $stmt->bindParam(':p', $pass, PDO::PARAM_STR);
-            $result = pg_fetch_all($stmt);
-            return $result;
+            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, pass FROM usuaris where nom = :n or email = :n and pass = :p ");
+            $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
+            $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt -> fetch();
+        }
+        function CreateUser()
+        {
+            $stmt = Connexio::connectar()->prepare("INSERT INTO usuaris (nom, email, pass) VALUES (:n, :e, :p)");
+            $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
+            $stmt->bindParam(':e', $this->nom, PDO::PARAM_STR);
+            $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
+            if ($stmt->execute()) {
+                return "CORRECTE";
+            } else {
+                return "ERROR";
+            }
         }
 
     }
