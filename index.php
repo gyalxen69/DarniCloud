@@ -51,6 +51,7 @@
     </nav>
   </header>
   <?php
+  // 
   if (isset($_GET["signin"])) {
     echo '
     <form>
@@ -93,27 +94,35 @@
     <h1 style="text-align:center">Log In</h1>
     <div class="mb-3">
     <label class="form-label">User Name</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="email" class="form-control">
     </div>
     <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
+    <label for="pass" class="form-label">Password</label>
+    <input type="password" name="pass" class="form-control">
     </div>
     <div class="d-grid gap-2">
     <button class="btn btn-primary" type="submit" name="log">Log in</button>
     </div>
     </section>
     </div>
+    <input type="hidden" name="login">
     </form>';
     if(isset($_GET["log"])){
     $arrayUser = new User();
     $arrayUser -> nom = $_GET["email"];
     $arrayUser -> pass = $_GET["pass"];
     $arrayUser->LoadUser();
-    var_dump($users);
+
+    //Comprova si la consulta retorna que i es o no
+    if(!$arrayUser->LoadUser()){
+      echo 'Bad';
+    }
+    else{
+      echo 'GOOD JOB MY FRIEND';
+    }
+  //-----------------------------------------------------
     }
   }
   ?>
 </body>
-
 </html>

@@ -15,7 +15,7 @@
 
         function LoadUser()
         {
-            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, pass FROM usuaris where nom = :n or email = :n and pass = :p ");
+            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, pass FROM usuaris where (nom = :n or email = :n) and pass = :p");
             $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
             $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
             $stmt->execute();
