@@ -25,7 +25,7 @@
         {
             $stmt = Connexio::connectar()->prepare("INSERT INTO usuaris (nom, email, pass) VALUES (:n, :e, :p)");
             $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
-            $stmt->bindParam(':e', $this->nom, PDO::PARAM_STR);
+            $stmt->bindParam(':e', $this->email, PDO::PARAM_STR);
             $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
             if ($stmt->execute()) {
                 return "CORRECTE";
