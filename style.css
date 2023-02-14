@@ -1,0 +1,20 @@
+#fotolog{
+    display:flex; 
+    align-items:center; 
+    justify-content:flex-start; 
+    gap:0px 20px;
+}
+#siginlogin{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; height: 100vh; 
+    background-image:url(imgs/nuvols.png); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+.barraL:hover{
+    font-size: 1.5rem;
+}
+#siginsec{
+    width: 40%;
+}
