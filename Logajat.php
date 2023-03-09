@@ -1,16 +1,30 @@
 <?php
-  include "header.php";
-  include "user.php";
-  session_start();
+include "user.php";
+$correcta = false;
+if (isset($_POST["log"])) {
+  $arrayUser = new User();
+  $arrayUser->nom = $_POST["email"];
+  $arrayUser->pass = $_POST["pass"];
+  //Comprova si la consulta retorna que i es o no
+  if ($arrayUser->LoadUser()) {
+    echo 'Bad';
+  } else {
+    $correcta = true;
+    session_start();
+    $_SESSION["log"] = $arrayUser->id;
+    echo 'GOOD JOB MY FRIEND';
     if (isset($_SESSION["log"])) {
-        $log = $_SESSION["log"];
         $arrayLog = new User();
-        $arrayLog->logCorrecta($log);
+        $arrayLog->logCorrecta($_SESSION["log"]);
         $_SESSION["logCorrecta1"] = $arrayLog->nom;
         $_SESSION["logCorrecta2"] = $arrayLog->email;
         $_SESSION["logCorrecta3"] = $arrayLog->imatge;
-        var_dump($arrayLog);
+        include "header.php";
     }else{
+
         echo 'Has olvidado poner tu nombre';
     }
+  }
+  //-----------------------------------------------------
+}
 ?>

@@ -1,7 +1,6 @@
   <?php
   include "user.php";
   include "header.php";
-  session_start();
   if (isset($_GET["signin"])) {
     echo '
     <form>
@@ -37,7 +36,7 @@
   }
   if (isset($_GET["login"])) {
     echo '
-    <form>
+    <form action="Logajat.php" method="post">
     <div  id="siginlogin">
     <section class="rounded-5 p-5 border border-3 border-dark" style="width: 40%;">
     <h1 style="text-align:center">Log In</h1>
@@ -56,26 +55,7 @@
     </div>
     <input type="hidden" name="login">
     </form>';
-     $correcta = false;
-    if (isset($_GET["log"])) {
-      $arrayUser = new User();
-      $arrayUser->nom = $_GET["email"];
-      $arrayUser->pass = $_GET["pass"];
-      //Comprova si la consulta retorna que i es o no
-      if ($arrayUser->LoadUser()) {
-        echo 'Bad';
-      } else {
-        $correcta = true;
-        
-        $_SESSION["log"] = $arrayUser->id;
-        echo 'GOOD JOB MY FRIEND';
-        header('Location:Logajat.php');
-        // echo '<form action="Logajat.php" method="get">
-        // <input type="hidden" name="id"  value="' .  $arrayUser->nom . '" />
-        // </form>';
-      }
-      //-----------------------------------------------------
-    }
+    
   }
   ?>
   
