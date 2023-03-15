@@ -1,5 +1,6 @@
 <?php
 include "user.php";
+include "header.php";
 $correcta = false;
 if (isset($_POST["log"])) {
   $arrayUser = new User();
