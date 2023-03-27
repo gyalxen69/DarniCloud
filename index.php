@@ -57,5 +57,8 @@
     </form>';
     
   }
+echo '<form>
+<div class="blanc"></div>
+</form>';
+include "footer.php";
   ?>
-  

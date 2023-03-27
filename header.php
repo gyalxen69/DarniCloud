@@ -32,33 +32,32 @@ if (isset($_SESSION["logCorrecta1"])) {
         <!-- Aquest div es el que done color a la nav bar del deslpagable -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <form>
+            <form id="divbutton">
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              <button type="submit"  class="btn btn-outline-danger" name="logout">
+              <button id="logout" type="submit" class="btn btn-outline-danger" name="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                  <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"></path>
+                  <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"></path>
+                </svg>
+              </button>
             </form>
-              <?php
-              if (isset($_GET["logout"])) {
-                echo "Eh entrat";
-                session_unset();
-                header("windwos.location:index.php");
-              }
-              ?>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
-                <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"></path>
-                <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"></path>
-              </svg>
-            </button>
-          </div> 
+            <?php
+            if (isset($_GET["logout"])) {
+              session_unset();
+              header("windwos.location:index.php");
+            }
+            ?>
+          </div>
           <?php
-                  if (isset($_SESSION["logCorrecta1"])) {
-                  ?>
+          if (isset($_SESSION["logCorrecta1"])) {
+          ?>
             <div class="card; border:none;" id="fotolog">
               <img class="card-img-top" src="<?php echo $imatge; ?>" style="height: 15vh; width: 10vw; border-radius: 50%; border:none;">
               <div class="d-flex flex-column">
                 <h3><?php echo $nom; ?></h3>
                 <h4><?php echo $email; ?></h4>
               <?php
-                  } else {
+            } else {
               ?>
                 <div class="card; border:none;" id="fotolog">
                   <img class="card-img-top" src="./imgs/user.png" style="height: 15vh; width: 10vw; border-radius: 50%; border:none;">
@@ -66,29 +65,30 @@ if (isset($_SESSION["logCorrecta1"])) {
                     <h3>User</h3>
                     <h4>correu@gmail.com</h4>
                   <?php
-                  }
-                      ?>
-                      </div>
-                    </div>
-                    <!-- ----------------------------------------------------- -->
-                    <div class="card-body">
-                      <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1">
-                          <li class="nav-item">
-                            <a class="nav-link active barraL" aria-current="page" href="http://localhost/M09UF2/DarniCloud/overview.php">Overview</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link active barraL" href="#">Download</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link active barraL" href="#">Preu</a>
-                          </li>
-                        </ul>
-                        <form>
-                          <button class="btn btn-primary" name="signin">Sign in</button>
-                          <button class="btn btn-danger" name="login">Login</button>
-                        </form>
-                      </div>
-                    </div>
+                }
+                  ?>
+                  </div>
+                </div>
+                <!-- ----------------------------------------------------- -->
+                <div class="card-body">
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1">
+                      <li class="nav-item p-2">
+                        <a class="nav-link barraL" aria-current="page" href="http://localhost/M09UF2/DarniCloud/overview.php">Overview</a>
+                      </li>
+                      <li class="nav-item p-2">
+                        <a class="nav-link barraL" href="#">Download</a>
+                      </li>
+                      <li class="nav-item p-2">
+                        <a class="nav-link barraL" href="#">Preu</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <br>
+                  <form class="p-4">
+                    <button class="btn btn-primary" name="signin">Sign in</button>
+                    <button class="btn btn-danger" name="login">Login</button>
+                  </form>
+                </div>
     </nav>
   </header>
