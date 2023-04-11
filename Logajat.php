@@ -22,7 +22,6 @@ if (isset($_POST["log"])) {
         $_SESSION["logCorrecta3"] = $arrayLog->imatge;
         include "header.php";
     }else{
-
         echo 'Has olvidado poner tu nombre';
     }
   }

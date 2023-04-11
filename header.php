@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_SESSION["logCorrecta1"])) {
   $nom = $_SESSION["logCorrecta1"];
   $email = $_SESSION["logCorrecta2"];
@@ -8,7 +7,6 @@ if (isset($_SESSION["logCorrecta1"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +16,6 @@ if (isset($_SESSION["logCorrecta1"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <title>DarniCloud</title>
 </head>
-
 <body>
   <header>
     <nav class="navbar fixed-top" style="background-color: #1299F3; padding:0">
@@ -85,10 +82,14 @@ if (isset($_SESSION["logCorrecta1"])) {
                     </ul>
                   </div>
                   <br>
-                  <form class="p-4">
-                    <button class="btn btn-primary" name="signin">Sign in</button>
-                    <button class="btn btn-danger" name="login">Login</button>
-                  </form>
+                  <div class="row">
+                    <div class="col-5 d-grid gap-2">
+                      <button onclick="location.href = 'signup.php'" class="btn btn-primary" name="signin">Sign up</button>
+                    </div>
+                    <div class="col-5 d-grid gap-2">
+                      <button onclick="location.href = 'login.php'" class="btn btn-danger" name="login">Login</button>
+                    </div>
+                  </div>
                 </div>
     </nav>
   </header>

@@ -78,9 +78,6 @@
     align-items: center;
     /* background-color: #1299F3; */
 }
-#logout{
-}
-
 .card-body{
     display: flex;
     flex-direction: column;
