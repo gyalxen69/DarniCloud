@@ -12,6 +12,5 @@
             }
         }
     }
-
     //find code to connect php to postgres database.
 ?>

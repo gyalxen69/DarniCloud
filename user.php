@@ -15,20 +15,16 @@
             $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
             $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
             $stmt->execute();
-            $e=$stmt->fetch();
-            $this->id = $e["id"];
-            
-            return $stmt->fetch();
+            $data = $stmt->fetch();
+            var_dump($data);
+            $this->id = $data["id"];
+            return $data;
         }
         function logCorrecta($id)
         {
             $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, imatge FROM usuaris where id = :id");
             $stmt->bindParam(':id', $id, PDO::PARAM_STR);
             $stmt->execute();
-            $e=$stmt->fetch();
-            $this->nom = $e["nom"];
-            $this->email = $e["email"];
-            $this->imatge = $e["imatge"];
             return $stmt->fetch();
         }
         function CreateUser()

@@ -3,6 +3,7 @@ if (isset($_SESSION["logCorrecta1"])) {
   $nom = $_SESSION["logCorrecta1"];
   $email = $_SESSION["logCorrecta2"];
   $imatge = $_SESSION["logCorrecta3"];
+  $pass = $_SESSION["logCorrecta4"];
 }
 ?>
 <!DOCTYPE html>
