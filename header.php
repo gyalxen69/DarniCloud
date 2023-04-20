@@ -1,13 +1,6 @@
-<?php
-if (isset($_SESSION["logCorrecta1"])) {
-  $nom = $_SESSION["logCorrecta1"];
-  $email = $_SESSION["logCorrecta2"];
-  $imatge = $_SESSION["logCorrecta3"];
-  $pass = $_SESSION["logCorrecta4"];
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +10,7 @@ if (isset($_SESSION["logCorrecta1"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <title>DarniCloud</title>
 </head>
+
 <body>
   <header>
     <nav class="navbar fixed-top" style="background-color: #1299F3; padding:0">
@@ -48,23 +42,25 @@ if (isset($_SESSION["logCorrecta1"])) {
           </div>
           <?php
           if (isset($_SESSION["logCorrecta1"])) {
+            $nom = $_SESSION["logCorrecta1"];
+            $email = $_SESSION["logCorrecta2"];
+            $imatge = $_SESSION["logCorrecta3"];
+            var_dump($nom);
+          } else {
+            $nom = "adeu";
+            $email = "correu@gmail.com";
+          }
           ?>
-            <div class="card; border:none;" id="fotolog">
-              <img class="card-img-top" src="<?php echo $imatge; ?>" style="height: 15vh; width: 10vw; border-radius: 50%; border:none;">
-              <div class="d-flex flex-column">
-                <h3><?php echo $nom; ?></h3>
-                <h4><?php echo $email; ?></h4>
-              <?php
-            } else {
-              ?>
+                 <!-- <div class="card; border:none;" id="fotolog">
+                  <img class="card-img-top" src="./imgs/user.png" style="height: 15vh; width: 10vw; border-radius: 50%; border:none;">
+                  <div class="d-flex flex-column">
+                   <h3>hola</h3>
+                   <h4>correu@gmail.com</h4> -->
                 <div class="card; border:none;" id="fotolog">
                   <img class="card-img-top" src="./imgs/user.png" style="height: 15vh; width: 10vw; border-radius: 50%; border:none;">
                   <div class="d-flex flex-column">
-                    <h3>User</h3>
-                    <h4>correu@gmail.com</h4>
-                  <?php
-                }
-                  ?>
+                  <h3><?php echo $nom; ?></h3>
+                  <h4><?php echo $email; ?></h4>
                   </div>
                 </div>
                 <!-- ----------------------------------------------------- -->

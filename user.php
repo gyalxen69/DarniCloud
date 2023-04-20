@@ -11,21 +11,29 @@
 
         function LoadUser()
         {
-            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, pass, imatge FROM usuaris where (nom = :n or email = :n) and pass = :p");
+            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, pass, imatge FROM usuaris where nom = :n or email = :n");
             $stmt->bindParam(':n', $this->nom, PDO::PARAM_STR);
-            $stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
+            //$stmt->bindParam(':p', $this->pass, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetch();
-            var_dump($data);
             $this->id = $data["id"];
-            return $data;
+            if(password_verify( $this->pass , $data["pass"])){
+                echo "Correcta";
+            }
+            else{
+                return false;
+            }
+            
         }
         function logCorrecta($id)
         {
-            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, imatge FROM usuaris where id = :id");
+            $stmt = Connexio::connectar()->prepare("SELECT id, nom, email, imatge, pass FROM usuaris where id = :id");
             $stmt->bindParam(':id', $id, PDO::PARAM_STR);
             $stmt->execute();
-            return $stmt->fetch();
+            $data = $stmt->fetch();
+            $this->nom = $data["nom"];
+            $this->email = $data["email"];
+            $this->imatge = $data["imatge"];
         }
         function CreateUser()
         {

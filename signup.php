@@ -30,7 +30,9 @@
       $arrayUser = new User();
       $arrayUser->nom = $_GET["nom"];
       $arrayUser->email = $_GET["email"];
-      $arrayUser->pass = $_GET["pass"];
+      $password = $_GET["pass"];
+      $passwordEncrypt = password_hash($password, PASSWORD_BCRYPT);
+      $arrayUser->pass = $passwordEncrypt;
       $arrayUser->CreateUser();
     }
    
